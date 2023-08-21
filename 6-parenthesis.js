@@ -16,12 +16,19 @@ function isValidParenthesis(input) {
     return false;
   }
 
-  for (i = 0; i < input.length / 2; i++) {
-    if (MATCHES[input[i]] !== input[input.length - 1 - i]) {
-      return false;
-    }
+  const stack = [];
+
+  for (i = 0; i < input.length; i++) {
+    const closing = MATCHES[input[i]];
+    if (closing) {
+      stack.push(closing);
+    } else {
+      if(stack.pop() !== input[i]) {
+        return false;
+      }
+    } 
   }
   return true;
 }
 
-console.log(isValidParenthesis('[{({[{}]})}]'));
+console.log(isValidParenthesis('[][]'));
