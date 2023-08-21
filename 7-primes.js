@@ -13,9 +13,9 @@ function findPrimes(value) {
   }
   let candidate = 2;
 
-  while (candidate <= value) {
+  while (candidate * candidate < value) {
     if (candidates.has(candidate)) {
-      for (let toDelete = candidate + candidate; toDelete < value; toDelete += candidate) {
+      for (let toDelete = candidate + candidate; toDelete <= value; toDelete += candidate) {
         candidates.delete(toDelete);
       }
     }
@@ -24,7 +24,7 @@ function findPrimes(value) {
   return [...candidates];
 }
 
-console.log(findPrimes(2));
+console.log(findPrimes(10));
 
 
 /*
