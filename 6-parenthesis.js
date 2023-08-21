@@ -31,4 +31,4 @@ function isValidParenthesis(input) {
   return true;
 }
 
-console.log(isValidParenthesis('[][]'));
+console.log(isValidParenthesis('[]{}'));
