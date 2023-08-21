@@ -8,7 +8,7 @@
 
 function findPrimes(value) {
   const candidates = new Set();
-  for (let i = 2; i < value; i++) {
+  for (let i = 2; i <= value; i++) {
     candidates.add(i);
   }
   let candidate = 2;
