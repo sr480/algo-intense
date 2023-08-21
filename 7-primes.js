@@ -7,24 +7,24 @@
 
 
 function findPrimes(value) {
-  const primes = new Set();
+  const candidates = new Set();
   for (let i = 2; i < value; i++) {
-    primes.add(i);
+    candidates.add(i);
   }
   let candidate = 2;
 
-  while (candidate * candidate <= value) {
-    if (primes.has(candidate)) {
+  while (candidate <= value) {
+    if (candidates.has(candidate)) {
       for (let toDelete = candidate + candidate; toDelete < value; toDelete += candidate) {
-        primes.delete(toDelete);
+        candidates.delete(toDelete);
       }
     }
     candidate++;
   }
-  return [...primes];
+  return [...candidates];
 }
 
-console.log(findPrimes(20));
+console.log(findPrimes(2));
 
 
 /*
